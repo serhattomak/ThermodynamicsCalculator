@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Forms / Layouts - NiceAdmin Bootstrap Template</title>
+    <title>Termodinamik Hesap Makinesi</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -62,13 +62,23 @@
                 </a>
                 <ul id="calculations-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="tables-general.html">
-                            <i class="bi bi-circle"></i><span>Doymuş Su Hesapları</span>
+                        <a asp-controller="Calculation" asp-action="SaturatedWaterTemperature">
+                            <i class="bi bi-circle"></i><span>Doymuş Su - Sıcaklık Hesapları</span>
                         </a>
                     </li>
                     <li>
-                        <a href="tables-data.html">
-                            <i class="bi bi-circle"></i><span>R134a Hesapları</span>
+                        <a asp-controller="Calculation" asp-action="SaturatedWaterPressure">
+                            <i class="bi bi-circle"></i><span>Doymuş Su - Basınç Hesapları</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Calculation" asp-action="SaturatedR134ATemperature">
+                            <i class="bi bi-circle"></i><span>R134a - Sıcaklık Hesapları</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Calculation" asp-action="SaturatedR134APressure">
+                            <i class="bi bi-circle"></i><span>R134a - Basınç Hesapları</span>
                         </a>
                     </li>
                 </ul>
@@ -81,13 +91,23 @@
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="tables-general.html">
-                            <i class="bi bi-circle"></i><span>Doymuş Su Tabloları</span>
+                        <a asp-controller="Table" asp-action="SaturatedWaterTemperature">
+                            <i class="bi bi-circle"></i><span>Doymuş Su - Sıcaklık Tabloları</span>
                         </a>
                     </li>
                     <li>
-                        <a href="tables-data.html">
-                            <i class="bi bi-circle"></i><span>R134a Tabloları</span>
+                        <a asp-controller="Table" asp-action="SaturatedWaterPressure">
+                            <i class="bi bi-circle"></i><span>Doymuş Su - Basınç Tabloları</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Table" asp-action="SaturatedR134ATemperature">
+                            <i class="bi bi-circle"></i><span>R134a - Sıcaklık Tabloları</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Table" asp-action="SaturatedR134APressure">
+                            <i class="bi bi-circle"></i><span>R134a - Basınç Tabloları</span>
                         </a>
                     </li>
                 </ul>

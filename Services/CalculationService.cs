@@ -5,7 +5,7 @@ public static class CalculationService
 {
     public static double KurulukDerecesi(double ozellikBuhar, double ozellikSivi)
     {
-        var x = ozellikBuhar/(ozellikSivi+ozellikBuhar);
+        var x = ozellikBuhar / (ozellikSivi + ozellikBuhar);
         return x;
     }
 
@@ -21,17 +21,17 @@ public static class CalculationService
     }
     public static double IdealGazKutle(double hacim, double basinc, double gazSabiti, double sicaklik)
     {
-        var kutle = (basinc*hacim)/(gazSabiti*sicaklik);
+        var kutle = (basinc * hacim) / (gazSabiti * sicaklik);
         return kutle;
     }
     public static double IdealGazSabit(double hacim, double basinc, double kutle, double sicaklik)
     {
-        var sabit = (basinc*hacim)/(kutle*sicaklik);
+        var sabit = (basinc * hacim) / (kutle * sicaklik);
         return sabit;
     }
     public static double IdealGazSicaklik(double hacim, double basinc, double kutle, double gazSabiti)
     {
-        var sicaklik = (basinc*hacim)/(kutle*gazSabiti);
+        var sicaklik = (basinc * hacim) / (kutle * gazSabiti);
         return sicaklik;
     }
 
@@ -60,14 +60,14 @@ public static class CalculationService
 
     public static double BuharlasmaOzgulHacim(double ozgulHacimBuhar, double ozgulHacimSivi)
     {
-        var buharlasma= ozgulHacimBuhar - ozgulHacimSivi;
+        var buharlasma = ozgulHacimBuhar - ozgulHacimSivi;
         return buharlasma;
     }
 
     public static double SikistirilabilmeCarpani(double basinc, double ozgulHacim, double gazSabiti, double sicaklik,
         double ozgulHacimGercek, double ozgulHacimMukemmel)
     {
-        var z = (basinc*ozgulHacim)/(gazSabiti*sicaklik);
+        var z = (basinc * ozgulHacim) / (gazSabiti * sicaklik);
         ozgulHacimMukemmel = (gazSabiti * sicaklik) / basinc;
         return z;
     }
@@ -85,12 +85,12 @@ public static class CalculationService
 
     public static double SabitHacimSinirIsi(double kutle, double sabitHacimOzgulIsi, double sicaklik1, double sicaklik2)
     {
-        var q=kutle*sabitHacimOzgulIsi*(sicaklik2 - sicaklik1);
+        var q = kutle * sabitHacimOzgulIsi * (sicaklik2 - sicaklik1);
         return q;
     }
     public static double SabitBasincSinirIsi(double kutle, double sabitBasincOzgulIsi, double sicaklik1, double sicaklik2)
     {
-        var q=kutle*sabitBasincOzgulIsi*(sicaklik2 - sicaklik1);
+        var q = kutle * sabitBasincOzgulIsi * (sicaklik2 - sicaklik1);
         return q;
     }
 
@@ -111,5 +111,11 @@ public static class CalculationService
     {
         var c = Math.Pow((basinc1 * basinc2), n);
         return c;
+    }
+
+    public static double Interpolasyon(double ustDeger, double altDeger, double eldekiDeger, double altReferans, double ustReferans, double eldekiReferans)
+    {
+        var x = (((eldekiReferans - ustReferans) * (altDeger + ustDeger)) / (altReferans - ustReferans)) + ustDeger;
+        return x;
     }
 }
