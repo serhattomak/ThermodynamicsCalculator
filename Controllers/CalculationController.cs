@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Thermo.Data;
 using Thermo.Entities;
 using Thermo.Models;
 using Thermo.Services;
@@ -7,32 +9,45 @@ namespace Thermo.Controllers;
 
 public class CalculationController : Controller
 {
+    private readonly ThermoContext _context;
 
+    public CalculationController(ThermoContext context)
+    {
+        _context=context;
+    }
     public IActionResult Index()
     {
         return View();
     }
 
-    public IActionResult SaturatedWaterTemperature()
+    public IActionResult SaturatedWaterTemperature(ThermodynamicValue value)
     {
-        /*if (model.InputTemperature.HasValue)
+
+        var sicaklikVerisi = _context.ThermodynamicValues.FirstOrDefault(s=>s.Value==value.Value);
+
+        if (sicaklikVerisi == null)
         {
-            var data = GetDataFromDatabase();
-
-            if (data != null)
-            {
-                // Eşleşen verileri güncelleme yeri
-
-                model.SaturationPressure = data.SaturationPressure;
-
-                // Diğer özellikler de burada güncellenebilir.
-            }
+            var kucukSicaklik=_context.ThermodynamicValues.FirstOrDefault(k=>k.Value<value.Value);
+            var buyukSicaklik = _context.ThermodynamicValues.FirstOrDefault(b => b.Value > value.Value);
         }
-        else
-        {
-            //Eşleşen veri yoksa interpolasyon.
-            model.SaturationPressure=Interpolasyon(model.InputTemperature.Value);
-        }*/
+            /*if (model.InputTemperature.HasValue)
+            {
+                var data = GetDataFromDatabase();
+    
+                if (data != null)
+                {
+                    // Eşleşen verileri güncelleme yeri
+    
+                    model.SaturationPressure = data.SaturationPressure;
+    
+                    // Diğer özellikler de burada güncellenebilir.
+                }
+            }
+            else
+            {
+                //Eşleşen veri yoksa interpolasyon.
+                model.SaturationPressure=Interpolasyon(model.InputTemperature.Value);
+            }*/
         return View();
     }
     public IActionResult SaturatedWaterPressure()

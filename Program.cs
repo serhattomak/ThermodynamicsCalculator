@@ -1,4 +1,11 @@
+using System.Configuration;
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using Thermo.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ThermoContext>(options=>options.UseNpgsql(builder.Configuration.GetConnectionString("ElephantSQLConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
