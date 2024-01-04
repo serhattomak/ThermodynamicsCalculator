@@ -17,8 +17,7 @@ namespace Thermo.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    TableName = table.Column<string>(type: "text", nullable: false),
-                    ThermodynamicPropertyId = table.Column<int>(type: "integer", nullable: false)
+                    TableName = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -12,7 +12,7 @@ using Thermo.Data;
 namespace Thermo.Migrations
 {
     [DbContext(typeof(ThermoContext))]
-    [Migration("20240102141810_InitialCreate")]
+    [Migration("20240103113652_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -58,9 +58,6 @@ namespace Thermo.Migrations
                     b.Property<string>("TableName")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<int>("ThermodynamicPropertyId")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

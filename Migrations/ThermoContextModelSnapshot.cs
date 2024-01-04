@@ -56,9 +56,6 @@ namespace Thermo.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("ThermodynamicPropertyId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.ToTable("ThermodynamicTables");
