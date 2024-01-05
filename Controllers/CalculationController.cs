@@ -81,7 +81,7 @@ public class CalculationController : Controller
         {
             query = query.Where(x => x.SatVaporEntropy == Convert.ToDouble(model.EntropyVapor));
         }
-        var list =query.ToList();
+        var list = query.ToList();
         if (list.Any())
         {
             var result = list.First();
@@ -93,12 +93,209 @@ public class CalculationController : Controller
     {
         return View();
     }
+    [HttpPost]
+    public IActionResult SaturatedWaterPressure([FromBody] SaturatedWaterPressurePropertyDTO model)
+    {
+        var query = _context.SaturatedWaterPressureProperties.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(model.Pressure))
+        {
+            query = query.Where(x => x.Pressure == Convert.ToDouble(model.Pressure));
+        }
+        if (!string.IsNullOrWhiteSpace(model.Temperature))
+        {
+            query = query.Where(x => x.SatTemperature == Convert.ToDouble(model.Temperature));
+        }
+        if (!string.IsNullOrWhiteSpace(model.VolumeFluid))
+        {
+            query = query.Where(x => x.SatLiquidSpecificVolume == Convert.ToDouble(model.VolumeFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.VolumeVapor))
+        {
+            query = query.Where(x => x.SatVaporSpecificVolume == Convert.ToDouble(model.VolumeFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyFluid))
+        {
+            query = query.Where(x => x.SatLiquidInternalEnergy == Convert.ToDouble(model.InternalEnergyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyEvap))
+        {
+            query = query.Where(x => x.EvapInternalEnergy == Convert.ToDouble(model.InternalEnergyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyVapor))
+        {
+            query = query.Where(x => x.SatVaporInternalEnergy == Convert.ToDouble(model.InternalEnergyVapor));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyFluid))
+        {
+            query = query.Where(x => x.SatLiquidEnthalpy == Convert.ToDouble(model.EnthalpyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyEvap))
+        {
+            query = query.Where(x => x.EvapEnthalpy == Convert.ToDouble(model.EnthalpyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyVapor))
+        {
+            query = query.Where(x => x.SatVaporEnthalpy == Convert.ToDouble(model.EnthalpyVapor));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyFluid))
+        {
+            query = query.Where(x => x.SatLiquidEntropy == Convert.ToDouble(model.EntropyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyEvap))
+        {
+            query = query.Where(x => x.EvapEntropy == Convert.ToDouble(model.EntropyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyVapor))
+        {
+            query = query.Where(x => x.SatVaporEntropy == Convert.ToDouble(model.EntropyVapor));
+        }
+        var list = query.ToList();
+        if (list.Any())
+        {
+            var result = list.First();
+            return Json(result);
+        }
+        return Json(new { success = false, message = "Uygun kayıt bulunamadı." });
+    }
+
     public IActionResult SaturatedR134ATemperature()
     {
         return View();
     }
+
+    [HttpPost]
+    public IActionResult SaturatedR134ATemperature([FromBody] Saturated134ATemperaturePropertyDTO model)
+    {
+        var query = _context.Saturated134ATemperatureProperties.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(model.Temperature))
+        {
+            query = query.Where(x => x.Temperature == Convert.ToDouble(model.Temperature));
+        }
+        if (!string.IsNullOrWhiteSpace(model.Pressure))
+        {
+            query = query.Where(x => x.SatPressure == Convert.ToDouble(model.Pressure));
+        }
+        if (!string.IsNullOrWhiteSpace(model.VolumeFluid))
+        {
+            query = query.Where(x => x.SatLiquidSpecificVolume == Convert.ToDouble(model.VolumeFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.VolumeVapor))
+        {
+            query = query.Where(x => x.SatVaporSpecificVolume == Convert.ToDouble(model.VolumeFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyFluid))
+        {
+            query = query.Where(x => x.SatLiquidInternalEnergy == Convert.ToDouble(model.InternalEnergyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyEvap))
+        {
+            query = query.Where(x => x.EvapInternalEnergy == Convert.ToDouble(model.InternalEnergyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyVapor))
+        {
+            query = query.Where(x => x.SatVaporInternalEnergy == Convert.ToDouble(model.InternalEnergyVapor));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyFluid))
+        {
+            query = query.Where(x => x.SatLiquidEnthalpy == Convert.ToDouble(model.EnthalpyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyEvap))
+        {
+            query = query.Where(x => x.EvapEnthalpy == Convert.ToDouble(model.EnthalpyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyVapor))
+        {
+            query = query.Where(x => x.SatVaporEnthalpy == Convert.ToDouble(model.EnthalpyVapor));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyFluid))
+        {
+            query = query.Where(x => x.SatLiquidEntropy == Convert.ToDouble(model.EntropyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyEvap))
+        {
+            query = query.Where(x => x.EvapEntropy == Convert.ToDouble(model.EntropyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyVapor))
+        {
+            query = query.Where(x => x.SatVaporEntropy == Convert.ToDouble(model.EntropyVapor));
+        }
+        var list = query.ToList();
+        if (list.Any())
+        {
+            var result = list.First();
+            return Json(result);
+        }
+        return Json(new { success = false, message = "Uygun kayıt bulunamadı." });
+    }
     public IActionResult SaturatedR134APressure()
     {
         return View();
+    }
+    [HttpPost]
+    public IActionResult SaturatedR134APressure([FromBody] Saturated134APressurePropertyDTO model)
+    {
+        var query = _context.Saturated134APressureProperties.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(model.Pressure))
+        {
+            query = query.Where(x => x.Pressure == Convert.ToDouble(model.Pressure));
+        }
+        if (!string.IsNullOrWhiteSpace(model.Temperature))
+        {
+            query = query.Where(x => x.SatTemperature == Convert.ToDouble(model.Temperature));
+        }
+        if (!string.IsNullOrWhiteSpace(model.VolumeFluid))
+        {
+            query = query.Where(x => x.SatLiquidSpecificVolume == Convert.ToDouble(model.VolumeFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.VolumeVapor))
+        {
+            query = query.Where(x => x.SatVaporSpecificVolume == Convert.ToDouble(model.VolumeFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyFluid))
+        {
+            query = query.Where(x => x.SatLiquidInternalEnergy == Convert.ToDouble(model.InternalEnergyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyEvap))
+        {
+            query = query.Where(x => x.EvapInternalEnergy == Convert.ToDouble(model.InternalEnergyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.InternalEnergyVapor))
+        {
+            query = query.Where(x => x.SatVaporInternalEnergy == Convert.ToDouble(model.InternalEnergyVapor));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyFluid))
+        {
+            query = query.Where(x => x.SatLiquidEnthalpy == Convert.ToDouble(model.EnthalpyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyEvap))
+        {
+            query = query.Where(x => x.EvapEnthalpy == Convert.ToDouble(model.EnthalpyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EnthalpyVapor))
+        {
+            query = query.Where(x => x.SatVaporEnthalpy == Convert.ToDouble(model.EnthalpyVapor));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyFluid))
+        {
+            query = query.Where(x => x.SatLiquidEntropy == Convert.ToDouble(model.EntropyFluid));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyEvap))
+        {
+            query = query.Where(x => x.EvapEntropy == Convert.ToDouble(model.EntropyEvap));
+        }
+        if (!string.IsNullOrWhiteSpace(model.EntropyVapor))
+        {
+            query = query.Where(x => x.SatVaporEntropy == Convert.ToDouble(model.EntropyVapor));
+        }
+        var list = query.ToList();
+        if (list.Any())
+        {
+            var result = list.First();
+            return Json(result);
+        }
+        return Json(new { success = false, message = "Uygun kayıt bulunamadı." });
     }
 }

@@ -29,6 +29,8 @@
     <!-- Template Main CSS File -->
     <link href="~/css/style.css" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- =======================================================
     * Template Name: NiceAdmin
     * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -137,7 +139,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Hesapla</button>
+                                    <button type="button" class="btn btn-primary" id="calculate">Hesapla</button>
                                     <button type="reset" class="btn btn-secondary">Sıfırla</button>
                                 </div>
                             </form><!-- End floating Labels Form -->
@@ -147,5 +149,59 @@
             </div>
         </section>
     </main><!-- End #main -->
+
+    <script>
+        $(document).ready(function () {
+            $("#calculate").click(function () {
+                var data = {
+                    "Pressure": $("#floatingPressure").val(),
+                    "Temperature": $("#floatingTemperature").val(),
+                    "VolumeFluid": $("#floatingVolumeFluid").val(),
+                    "VolumeVapor": $("#floatingVolumeVapor").val(),
+                    "InternalEnergyFluid": $("#floatingInternalEnergyFluid").val(),
+                    "InternalEnergyEvap": $("#floatingInternalEnergyEvap").val(),
+                    "InternalEnergyVapor": $("#floatingInternalEnergyVapor").val(),
+                    "EnthalpyFluid": $("#floatingEnthalpyFluid").val(),
+                    "EnthalpyEvap": $("#floatingEnthalpyEvap").val(),
+                    "EnthalpyVapor": $("#floatingEnthalpyVapor").val(),
+                    "EntropyFluid": $("#floatingEntropyFluid").val(),
+                    "EntropyEvap": $("#floatingEntropyEvap").val(),
+                    "EntropyVapor": $("#floatingEntropyVapor").val()
+                };
+
+                console.log("abc", data);
+                $.ajax({
+                    url: '@Url.Action("SaturatedR134APressure", "Calculation")',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function (response) {
+                        if (response.success === false) {
+                            alert(response.message);
+                            return;
+                        }
+                        console.log(response);
+                        $("#floatingPressure").val(response.pressure);
+                        $("#floatingTemperature").val(response.satTemperature);
+                        $("#floatingVolumeFluid").val(response.satLiquidSpecificVolume);
+                        $("#floatingVolumeVapor").val(response.satVaporSpecificVolume);
+                        $("#floatingInternalEnergyFluid").val(response.satLiquidInternalEnergy);
+                        $("#floatingInternalEnergyEvap").val(response.evapInternalEnergy);
+                        $("#floatingInternalEnergyVapor").val(response.satVaporInternalEnergy);
+                        $("#floatingEnthalpyFluid").val(response.satLiquidEnthalpy);
+                        $("#floatingEnthalpyEvap").val(response.evapEnthalpy);
+                        $("#floatingEnthalpyVapor").val(response.satVaporEnthalpy);
+                        $("#floatingEntropyFluid").val(response.satLiquidEntropy);
+                        $("#floatingEntropyEvap").val(response.evapEntropy);
+                        $("#floatingEntropyVapor").val(response.satVaporEntropy);
+                    },
+                    error: function () {
+                        // Hata durumunda yapılacak işlemler
+                    }
+                });
+            });
+        });
+
+    </script>
 </body>
 </html>
