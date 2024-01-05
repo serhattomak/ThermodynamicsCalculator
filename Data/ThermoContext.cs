@@ -9,14 +9,9 @@ public class ThermoContext : DbContext
     {
 
     }
-
-    public DbSet<ThermodynamicProperty> ThermodynamicProperties { get; set; }
-    public DbSet<ThermodynamicTable> ThermodynamicTables { get; set; }
-    public DbSet<ThermodynamicValue> ThermodynamicValues { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<ThermodynamicProperty>().Property(b => b.PropertyName).IsRequired();
-        modelBuilder.Entity<ThermodynamicTable>().Property(b => b.TableName).IsRequired();
-    }
+    
+    public DbSet<SaturatedWaterTemperatureProperty> SaturatedWaterTemperatureProperties { get; set; }
+    public DbSet<SaturatedWaterPressureProperty> SaturatedWaterPressureProperties { get; set; }
+    public DbSet<Saturated134ATemperatureProperty> Saturated134ATemperatureProperties { get; set; }
+    public DbSet<Saturated134APressureProperty> Saturated134APressureProperties { get; set; }
 }
