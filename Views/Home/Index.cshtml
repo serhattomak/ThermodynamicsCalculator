@@ -45,9 +45,7 @@
             <h1>Hesaplama</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Anasayfa</a></li>
-                    <li class="breadcrumb-item">Hesaplama</li>
-                    <li class="breadcrumb-item active">Örnek Hesaplama</li>
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Anasayfa</a></li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -56,91 +54,34 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Horizontal Form</h5>
-
-                            <!-- Floating Labels Form -->
-                            <form class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingPressure" placeholder="Basınç">
-                                        <label for="floatingPressure">Basınç</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingTemperature" placeholder="Sıcaklık">
-                                        <label for="floatingTemperature">Sıcaklık</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingVolumeFluid" placeholder="Özgül Hacim - Sıvı">
-                                        <label for="floatingVolumeFluid">Özgül Hacim - Sıvı</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingVolumeVapor" placeholder="Özgül Hacim - Buhar">
-                                        <label for="floatingVolumeVapor">Özgül Hacim - Buhar</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingInternalEnergyFluid" placeholder="İç Enerji - Sıvı">
-                                        <label for="floatingInternalEnergyFluid">İç Enerji - Sıvı</label>
-                                    </div>
-                                </div><div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingInternalEnergyEvap" placeholder="İç Enerji - Buharlaşma">
-                                        <label for="floatingInternalEnergyEvap">İç Enerji - Buharlaşma</label>
-                                    </div>
-                                </div><div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingInternalEnergyVapor" placeholder="İç Enerji - Buhar">
-                                        <label for="floatingInternalEnergyVapor">İç Enerji - Buhar</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingEnthalpyFluid" placeholder="Entalpi - Sıvı">
-                                        <label for="floatingEnthalpyFluid">Entalpi - Sıvı</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingEnthalpyEvap" placeholder="Entalpi - Buharlaşma">
-                                        <label for="floatingEnthalpyEvap">Entalpi - Buharlaşma</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingEnthalpyVapor" placeholder="Entalpi - Buhar">
-                                        <label for="floatingEnthalpyVapor">Entalpi - Buhar</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingEntropyFluid" placeholder="Entropi - Sıvı">
-                                        <label for="floatingEntropyFluid">Entropi - Sıvı</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingEntropyEvap" placeholder="Entropi - Buharlaşma">
-                                        <label for="floatingEntropyEvap">Entropi - Buharlaşma</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="floatingEntropyVapor" placeholder="Entropi - Buhar">
-                                        <label for="floatingEntropyVapor">Entropi - Buhar</label>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Hesapla</button>
-                                    <button type="reset" class="btn btn-secondary">Sıfırla</button>
-                                </div>
-                            </form><!-- End floating Labels Form -->
+                            <h5 class="card-title">Doymuş Su - Sıcaklık Tablosu Hesaplaması</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Hesaplama</h6>
+                            <p class="card-text">Hesaplama ekranına gitmek için aşağıdaki butona tıklayınız.</p>
+                            <p class="card-text"><a href="/Calculation/SaturatedWaterTemperature" class="btn btn-primary">Hesaplama Ekranına Git</a></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Doymuş Su - Basınç Tablosu Hesaplaması</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Hesaplama</h6>
+                            <p class="card-text">Hesaplama ekranına gitmek için aşağıdaki butona tıklayınız.</p>
+                            <p class="card-text"><a href="/Calculation/SaturatedWaterPressure" class="btn btn-primary">Hesaplama Ekranına Git</a></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">R134-A - Sıcaklık Tablosu Hesaplaması</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Hesaplama</h6>
+                            <p class="card-text">Hesaplama ekranına gitmek için aşağıdaki butona tıklayınız.</p>
+                            <p class="card-text"><a href="/Calculation/SaturatedR134ATemperature" class="btn btn-primary">Hesaplama Ekranına Git</a></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">R134-A - Basınç Tablosu Hesaplaması</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Hesaplama</h6>
+                            <p class="card-text">Hesaplama ekranına gitmek için aşağıdaki butona tıklayınız.</p>
+                            <p class="card-text"><a href="/Calculation/SaturatedR134APressure" class="btn btn-primary">Hesaplama Ekranına Git</a></p>
                         </div>
                     </div>
                 </div>
